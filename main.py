@@ -18,7 +18,6 @@ html = f"""
                 <li><a href="/docs">/docs</a></li>
                 <li><a href="/redoc">/redoc</a></li>
             </ul>
-            <p>Powered by <a href="https://APPLINKTIC.com" target="_blank">APPLINKTIC</a></p>
         </div>
     </body>
 </html>
