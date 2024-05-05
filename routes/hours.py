@@ -12,7 +12,7 @@ def read_hours(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return hours
 
 @router.get("/{id_hour}")
-def read_task(id_hour: int, db: Session = Depends(get_db)):
+def read_hour(id_hour: int, db: Session = Depends(get_db)):
     db_hours = db.query(HourModel).filter(HourModel.id_hours == id_hour).first()
     if not db_hours:
         raise HTTPException(status_code=404, detail="Hour not found")

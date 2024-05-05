@@ -12,7 +12,7 @@ def read_rols(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return rol
 
 @router.get("/{id_rol}")
-def read_task(id_rol: int, db: Session = Depends(get_db)):
+def read_rol(id_rol: int, db: Session = Depends(get_db)):
     db_rol = db.query(RolModel).filter(RolModel.id_rol == id_rol).first()
     if not db_rol:
         raise HTTPException(status_code=404, detail="Rol not found")

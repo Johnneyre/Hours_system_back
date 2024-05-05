@@ -12,7 +12,7 @@ def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return users
 
 @router.get("/{id_user}")
-def read_task(id_user: int, db: Session = Depends(get_db)):
+def read_user(id_user: int, db: Session = Depends(get_db)):
     db_user = db.query(UserModel).filter(UserModel.id_user == id_user).first()
     if not db_user:
         raise HTTPException(status_code=404, detail="User not found")
