@@ -3,6 +3,8 @@ from typing import Optional
 from datetime import datetime
 
 class UserBase(BaseModel):
+    username: Optional[str] = None
+    password: Optional[str] = None
     fullName: Optional[str] = None
     C_I: Optional[int] = None
     bithdate: Optional[datetime] = None
@@ -19,3 +21,6 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+class UserInDB(User):
+    hashed_password: str

@@ -1,6 +1,9 @@
 from sqlalchemy import Boolean, Column, DateTime, Integer, String, Date, ForeignKey, func
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from passlib.context import CryptContext
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 Base = declarative_base()
 
@@ -18,6 +21,8 @@ class Rol(Base):
 
 class User(Base):
     __tablename__ = 'users'
+    username = Column(String)
+    password = Column(String)
     id_user = Column(Integer, primary_key=True, autoincrement=True)
     fullName = Column(String)
     C_I = Column(Integer)
