@@ -24,3 +24,4 @@ class User(UserBase):
 
 class UserInDB(User):
     hashed_password: str
+    disabled: Optional[bool] = False
