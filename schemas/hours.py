@@ -4,7 +4,7 @@ from datetime import datetime
 
 class HourBase(BaseModel):
     hours: Optional[int] = None
-    date: Optional[datetime] = None
+    date: Optional[str] = None
     description: Optional[str] = None
     id_user: int
     id_tasks: int
