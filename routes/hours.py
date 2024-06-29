@@ -23,7 +23,7 @@ def read_hour(id_hour: int, db: Session = Depends(get_db)):
 def read_hours_by_user(id_user: int, db: Session = Depends(get_db)):
     hours = db.query(HourModel).options(joinedload(HourModel.user), joinedload(HourModel.task)).filter(HourModel.id_user == id_user).all()
     if not hours:
-        raise HTTPException(status_code=404, detail="No hours found for this user")
+        return []
     return hours
 
 def convert_date_to_datetime(date_str: str) -> datetime.datetime:
