@@ -48,3 +48,12 @@ def update_hour(id_hours: int, hour: HourCreate, db: Session = Depends(get_db)):
         setattr(db_hour, key, value)
     db.commit()
     return True
+
+@router.delete("/{id_hours}")
+def delete_task(id_hours: int, db: Session = Depends(get_db)):
+    db_hour = db.query(HourModel).filter(HourModel.id_hours == id_hours).first()
+    if not db_hour:
+        raise HTTPException(status_code=404, detail="Task not found")
+    db.delete(db_hour)
+    db.commit()
+    return {"detail": "Hour deleted successfully"}
